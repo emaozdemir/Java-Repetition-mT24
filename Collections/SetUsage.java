@@ -1,6 +1,8 @@
 import java.util.HashSet;
 import java.util.Set;
 
+// Set - When Uniqueness Matters
+
 /* Use Set when you need:
 1. Unique elements
 2. Fast lookup

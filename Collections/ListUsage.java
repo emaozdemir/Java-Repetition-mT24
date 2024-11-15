@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+// List - When Order Matters
+
 /*  Use List when you need:
 1. Ordered elements
 2. Duplicate elements
