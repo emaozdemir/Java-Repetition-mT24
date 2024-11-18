@@ -61,8 +61,8 @@ public class DequeUsage {
         System.out.println("--------------");
         
         // Let's look at the difference between peek and poll 
-        System.out.println("Top plate is: " + stack.peekFirst()); // Shows us the top plate, but doesn't remove it
-        System.out.println("Taking plate: " + stack.pollFirst()); // Shows us AND removes it.
+        System.out.println("Top plate is: " + stack.peekFirst()); // Shows us the top plate, but doesn't remove the plate
+        System.out.println("Taking plate: " + stack.pollFirst()); // Shows us AND removes plate from stack.
         System.out.println("Top plate is: " + stack.pollFirst() + " let's grab that too!");
         System.out.println("Top plate is: " + stack.pollFirst() + " and I need that one too!");
 
@@ -71,7 +71,30 @@ public class DequeUsage {
         System.out.println("Empty deque peek: " + stack.peekFirst());
         System.out.println("Empty deque poll: " + stack.pollFirst());
 
+        // Below is just a bonus visualisation of a stack of pancakes used as a stack
+        System.out.println("\n\n  ~~~ Welcome to the Pancake Stack ~~~\n");
+        System.out.println("The following is just a little bonus for running the code and to ");
+        System.out.println("really drive home the stack of pancake visualisation of a stack!\n");
+        System.out.println("------------------------------------------------------------\n");
 
+        int numPancakes = 5;
+        String topPancake = " =====*====";
+        String regularPancake = " ==========";
+        String plate = "\\__________/\n";
 
+        for (int s = numPancakes; s > 0; s--) {
+            System.out.println(s == numPancakes ? topPancake : regularPancake);
+            
+            for (int i = 0; i < s - 1; i++) {
+                System.out.println(regularPancake);
+            }
+            
+            System.out.println(plate);
+            
+            if (s > 1) {
+                System.out.println("Now, we use pollFirst() on our stack of pancakes\n");
+                System.out.println("------------------------------------------------------------\n");
+            }
+        }
     }
 }
