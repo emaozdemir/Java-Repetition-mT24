@@ -1,86 +1,79 @@
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.PriorityQueue;
 
-// Queue - When Order of Processing Matters (FIFO - First In, First Out)
+// Queue - When Order of Processing Matters!
 
 /* Use Queue when you need:
 1. FIFO (First In, First Out) behavior
-2. Process elements in the order they were added
-3. Managing tasks, requests, or any sequential processing
+2. Process elements in order they arrived
+3. Handle tasks one at a time
 */
 
 /* 
- * Queue is an interface, so we need to use a class that implements Queue.
- * LinkedList is commonly used as it implements both Queue and Deque interfaces.
- * Other implementations include PriorityQueue (which orders elements by priority (think of a hospital)).
+ * Queue is an interface, so we can't instantiate "Queue"
+ * We often use LinkedList or PriorityQueue
+ * LinkedList - Normal queue, first in first out
+ * PriorityQueue - Orders elements by priority
  */
 
 public class QueueUsage {
     public static void main(String[] args) {
-        // Creating our Queue
-        Queue<String> printQueue = new LinkedList<>();
+        // Let's create a queue to handle customers at a coffee shop
+        Queue<String> customerQueue = new LinkedList<>();
         
-        // Adding elements to our queue using offer()
-        // Note: add() also exists but offer() is preferred as it returns false if full
-        System.out.println("=== Adding print jobs to queue ===");
-        printQueue.offer("homework.pdf");
-        printQueue.offer("cat_pictures.jpg");
-        printQueue.offer("important_document.doc");
-        
-        // Peek at the first element (without removing it)
-        System.out.println("\nNext document to print: " + printQueue.peek());
-        
-        System.out.println("\n=== Processing print queue ===");
-        while (!printQueue.isEmpty()) {
-            // poll() removes and returns the head of the queue
-            // Note: remove() also exists but poll() is preferred as it returns null if empty
-            String document = printQueue.poll();
-            System.out.println("Printing: " + document);
-            System.out.println("Documents remaining in queue: " + printQueue.size());
+        // Adding customers to our queue
+        customerQueue.offer("Stina-Kalle");   // First ins
+        customerQueue.offer("Bobby");     
+        customerQueue.offer("Chad"); 
+
+        // Let's see who's first in line
+        // We use peek, which shows us the first customer,
+        // it doesn't remove the customer from the list. 
+        System.out.println("Next customer: " + customerQueue.peek());
+
+        // Time to serve our customers, we now use poll,
+        // which returns AND removes the first customer in our line. 
+        while (!customerQueue.isEmpty()) {
+            String customer = customerQueue.poll();
+            System.out.println("Now serving: " + customer);
         }
-        
-        // Let's try some error handling examples
-        System.out.println("\n=== Error handling examples ===");
-        
-        // Trying to peek at an empty queue
-        System.out.println("Peeking empty queue: " + printQueue.peek()); // Returns null
-        
-        // Trying to poll from an empty queue
-        System.out.println("Polling empty queue: " + printQueue.poll()); // Returns null
-        
-        // Let's demonstrate the difference between offer/add and poll/remove
-        Queue<String> smallQueue = new LinkedList<>();
-        
-        // Using offer (preferred method)
-        System.out.println("\n=== Using offer() ===");
-        System.out.println("Adding 'first.txt': " + smallQueue.offer("first.txt")); 
-        
-        // Using poll (preferred method)
-        System.out.println("\n=== Using poll() vs remove() ===");
-        System.out.println("Polling first element: " + smallQueue.poll()); 
-        System.out.println("Polling empty queue: " + smallQueue.poll());
-        
-        try {
-            // Using remove() on empty queue - will throw exception
-            smallQueue.remove();
-        } catch (Exception e) {
-            System.out.println("Exception when using remove() on empty queue: " + e.getClass().getSimpleName());
+
+        // Let's try a PriorityQueue for a hospital emergency room
+        // PriorityQueue will automatically sort by priority (1 = most urgent)
+        Queue<Patient> emergencyRoom = new PriorityQueue<>();
+
+        // We create some patients that we add to a priority queue 
+        // Note the priorityLevel 
+        // When we have more than 1 patient at the highest prio the one added first will be the first one
+
+        emergencyRoom.offer(new Patient("Gusten", 3));    // Onion-induced teary eyes. 
+        emergencyRoom.offer(new Patient("Mac Donald", 1));  // Heart attack (high priority)
+        emergencyRoom.offer(new Patient("Charlie", 2)); // Scratched by cat 
+        emergencyRoom.offer(new Patient("Mr.Goblin", 1)); // Hospital Owner (stubbed toe) (high prio)
+        emergencyRoom.offer(new Patient("Karen", 4)); // Asked to speak to the manager
+
+        System.out.println("\nTreating emergency room patients:");
+        while (!emergencyRoom.isEmpty()) {
+            Patient patient = emergencyRoom.poll();
+            System.out.println("Treating " + patient.name + " (Priority level: " + patient.priorityLevel + ")");
         }
-        
-        // Practical example: Processing customer support tickets
-        System.out.println("\n=== Customer Support Queue Example ===");
-        Queue<String> supportQueue = new LinkedList<>();
-        
-        supportQueue.offer("User can't login");
-        supportQueue.offer("Printer not responding");
-        supportQueue.offer("Network connection issues");
-        
-        System.out.println("Current support tickets: " + supportQueue);
-        System.out.println("Next ticket to handle: " + supportQueue.peek());
-        
-        // Process highest priority ticket
-        String currentTicket = supportQueue.poll();
-        System.out.println("Processing ticket: " + currentTicket);
-        System.out.println("Remaining tickets: " + supportQueue);
+    }
+}
+
+// We create a Patient class for our priority queue example.
+
+class Patient implements Comparable<Patient> {
+    String name;
+    int priorityLevel;
+
+    public Patient(String name, int priorityLevel) {
+        this.name = name;
+        this.priorityLevel = priorityLevel;
+    }
+
+    @Override
+    public int compareTo(Patient other) {
+        return this.priorityLevel - other.priorityLevel;
     }
 }
