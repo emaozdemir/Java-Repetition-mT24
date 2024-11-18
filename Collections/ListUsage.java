@@ -9,6 +9,12 @@ import java.util.List;
 3. Index access
 */
 
+/* 
+ * There's different versions of lists,
+ * most commonly used one is likely the ArrayList.
+ * Another List example is a LinkedList. 
+ */
+
 public class ListUsage {
 public static void main(String[] args){
     List<String> todoList = new ArrayList<>();
