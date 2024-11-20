@@ -1,6 +1,6 @@
 package Classes.Inheritance.Zoo.Animals;
-import Classes.Inheritance.Zoo.Behaviours.Flyable;
-import Classes.Inheritance.Zoo.Behaviours.Swimmable;
+import Classes.Inheritance.Zoo.Behaviours.*;
+
 
 public class Duck extends Animal implements Flyable, Swimmable {
     public Duck(String name) {

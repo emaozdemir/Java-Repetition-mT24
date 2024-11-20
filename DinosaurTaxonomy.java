@@ -297,20 +297,19 @@ class Triceratops extends Ceratopsia {
 // Example usage
 public class DinosaurTaxonomy {
     public static void main(String[] args) {
-        // Create instances of each concrete dinosaur class
         Tyrannosaurus tRex = new Tyrannosaurus(35000.0);
         Velociraptor velociraptor = new Velociraptor();
         Bird bird = new Bird();
         Brachiosaurus brachiosaurus = new Brachiosaurus();
-        Stegosaurus stegosaurus = new Stegosaurus();
+
         Ankylosaurus ankylosaurus = new Ankylosaurus();
         Iguanodon iguanodon = new Iguanodon();
         Triceratops triceratops = new Triceratops();
         
-        // Example of polymorphism
+        // Example of polymorphism - We can add all the dinosaurs! 
         Dinosauria[] dinosaurs = {
             tRex, velociraptor, bird, brachiosaurus, 
-            stegosaurus, ankylosaurus, iguanodon, triceratops
+             ankylosaurus, iguanodon, triceratops
         };
         
         // Print information about each dinosaur
@@ -322,7 +321,7 @@ public class DinosaurTaxonomy {
             System.out.println("Bipedal: " + dino.bipedal);
             System.out.println("-------------------");
         }
-        // Print inheritance chains for a few examples
+
         System.out.println("\nInheritance Chains:");
         System.out.println("===================");
         
@@ -346,10 +345,10 @@ public class DinosaurTaxonomy {
             }
         }
         
-        // Print with proper indentation for readability
         String[] classes = chain.toString().split(" → ");
         for (int i = 0; i < classes.length; i++) {
             System.out.println("  ".repeat(i) + classes[i]);
         }
     }
 }
+
