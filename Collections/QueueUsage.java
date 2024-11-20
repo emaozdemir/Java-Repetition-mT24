@@ -23,7 +23,7 @@ public class QueueUsage {
         Queue<String> customerQueue = new LinkedList<>();
         
         // Adding customers to our queue
-        customerQueue.offer("Stina-Kalle");   // First ins
+        customerQueue.offer("Stina-Kalle");   // First in
         customerQueue.offer("Bobby");     
         customerQueue.offer("Chad"); 
 

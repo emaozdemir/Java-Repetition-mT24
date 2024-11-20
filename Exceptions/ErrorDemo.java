@@ -20,17 +20,17 @@ package Exceptions;
         // Let's create a StackOverflowError with recursion
         System.out.println("=== Stack Overflow Example ===");
         System.out.println("(Comment out this section to run the rest)");
-        // countForever(1);  // Uncomment to see StackOverflowError
+        //countForever(1);  // Uncomment to see StackOverflowError
         
         // Let's try to use too much memory
         System.out.println("\n=== Out of Memory Example ===");
         System.out.println("(Comment out this section to run the rest)");
-        // long[] hugeArray = new long[Integer.MAX_VALUE];  // Uncomment to see OutOfMemoryError
+        //long[] hugeArray = new long[Integer.MAX_VALUE];  // Uncomment to see OutOfMemoryError
 
         // Let's see the difference between Error and Exception
         try {
             System.out.println("Trying something dangerous...");
-            // countForever(1);  // This would cause an Error
+            //countForever(1);  // This would cause an Error
         } catch (Exception e) {  // Note: This won't catch Errors!
             System.out.println("Caught an Exception");
         }

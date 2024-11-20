@@ -19,7 +19,7 @@ public class MapUsage {
         // Let's get Stina-Kalles ID 
         System.out.println("ID of employee: " + employeeIds.get("Stina-Kalle"));
 
-        // Let's see if Benny is employeed (nope... false)
+        // Let's see if Benny is employed (nope... false)
         System.out.println(employeeIds.containsKey("Benny"));
 
         // Let's see if we have an employee with ID 9201 (true)

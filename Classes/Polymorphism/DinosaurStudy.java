@@ -8,7 +8,6 @@ public class DinosaurStudy {
             new Stegosaurus(false), // Fossil Stegosaurus
             new Stegosaurus(true),   // Live Stegosaurus
             new Velociraptor(true),  // Live Velociraptor
-            
         };
         
         for (Dinosaur dino : dinosaurs) {
@@ -19,8 +18,7 @@ public class DinosaurStudy {
             
             if (dino instanceof PackBehavior) {
                 System.out.println("Pack Behavior: " + ((PackBehavior) dino).getPackBehavior());
-            }
-
+                }
             }
         }
     }

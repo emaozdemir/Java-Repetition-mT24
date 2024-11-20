@@ -65,6 +65,7 @@ public class ExceptionsDemo {
             System.out.println(nullString.length());
         } catch (NullPointerException e) {
             System.out.println("Can't get length of null!");
+            System.out.println("Error Message: " + e.getMessage());
         }
 
         // We can also use finally to always execute some code
@@ -85,12 +86,9 @@ public class ExceptionsDemo {
         System.out.println("Fix that and run the code again, should cause NullPointerException");
     
         try {
-            if (Math.random() < 0.5) {
                 int x = 1 / 0;  
-            } else {
                 String s = null;
                 s.length();    
-            }
         } catch (ArithmeticException e) {
             System.out.println("Can't divide by zero!");
         } catch (NullPointerException e) {
