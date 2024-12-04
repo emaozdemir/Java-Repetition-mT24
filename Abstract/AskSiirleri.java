@@ -1,3 +1,4 @@
+package Abstract;
 public class AskSiirleri extends Siirler{
     public AskSiirleri() {
         super(); // Siirler sınıfının constructor'ını çağırır
